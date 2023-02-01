@@ -1,9 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(() =>
+    localStorage.getItem('count') !== null
+      ? JSON.parse(localStorage.getItem('count'))
+      : []
+  );
+
+  const handleResetBtn = () => setCount(0);
+
+  useEffect(() => {
+    localStorage.setItem('count', JSON.stringify(count));
+  }, [count]);
 
   return (
     <div className="App">
@@ -14,9 +24,12 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <div className="btn-wrapper">
+          <button onClick={() => setCount((prev) => (prev = count + 1))}>
+            count is {count}
+          </button>
+          <button onClick={handleResetBtn}>reset</button>
+        </div>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>

@@ -5,6 +5,12 @@
   text-align: center;
 }
 
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
