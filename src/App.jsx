@@ -28,7 +28,7 @@ function App() {
           <button onClick={() => setCount((prev) => (prev = count + 1))}>
             count is {count}
           </button>
-          <button onClick={handleResetBtn}>reset</button>
+          <button onClick={handleResetBtn}>Reset</button>
         </div>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
