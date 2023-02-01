@@ -11,6 +11,10 @@
   gap: 1em;
 }
 
+.btn-wrapper button:first-child {
+  background-color: #0002;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
